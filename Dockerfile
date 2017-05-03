@@ -14,8 +14,7 @@ RUN set -x && \
       -o /root/alfresco-mmt.jar && \
       mkdir /root/amp
 
-# ALF_VERSION=5.2.e
-ARG ALF_VERSION
+ENV ALF_VERSION=5.2.e
 
 ## SHARE.WAR
 RUN set -x && \
@@ -38,6 +37,3 @@ RUN set -x \
 COPY assets/catalina.properties conf/catalina.properties
 COPY assets/share-config-custom.xml shared/classes/alfresco/web-extension/share-config-custom.xml
 COPY assets/server.xml conf/server.xml
-
-
-
