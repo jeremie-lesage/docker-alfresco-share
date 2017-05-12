@@ -38,4 +38,4 @@ COPY assets/catalina.properties conf/catalina.properties
 COPY assets/share-config-custom.xml shared/classes/alfresco/web-extension/share-config-custom.xml
 COPY assets/server.xml conf/server.xml
 
-ENV JAVA_OPTS: " -XX:-DisableExplicitGC -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Dfile.encoding=UTF-8 "
+ENV JAVA_OPTS " -XX:-DisableExplicitGC -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Dfile.encoding=UTF-8 "
