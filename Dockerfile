@@ -25,7 +25,7 @@ RUN set -x && \
     rm share-${ALF_VERSION}.war
 
 RUN set -x \
-      && sed -i 's|^log4j.appender.File.File=.*$|log4j.appender.File.File=/usr/local/tomcat/logs/share.log|' webapps/share/WEB-INF/classes/log4j.properties \
+      && sed -i 's/^log4j.rootLogger.*/log4j.rootLogger=error, Console/' webapps/share/WEB-INF/classes/log4j.properties \
       && mkdir -p shared/classes/alfresco/web-extension \
                   shared/lib \
       && rm -rf /usr/share/doc \
@@ -37,5 +37,8 @@ RUN set -x \
 COPY assets/catalina.properties conf/catalina.properties
 COPY assets/share-config-custom.xml shared/classes/alfresco/web-extension/share-config-custom.xml
 COPY assets/server.xml conf/server.xml
+COPY assets/logging.properties conf/logging.properties
 
 ENV JAVA_OPTS " -XX:-DisableExplicitGC -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Dfile.encoding=UTF-8 "
+
+WORKDIR /root
