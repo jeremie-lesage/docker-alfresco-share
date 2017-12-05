@@ -5,7 +5,7 @@ ENV NEXUS=https://artifacts.alfresco.com/nexus/content/groups/public
 
 WORKDIR /usr/local/tomcat/
 
-ENV MMT_VERSION=5.2.g
+ENV MMT_VERSION=5.1.g
 
 ## JAR - ALFRESCO MMT
 RUN set -x && \
@@ -14,7 +14,7 @@ RUN set -x && \
       -o /root/alfresco-mmt.jar && \
       mkdir /root/amp
 
-ENV ALF_VERSION=5.2.f
+ENV ALF_VERSION=5.1.g
 
 ## SHARE.WAR
 RUN set -x && \
